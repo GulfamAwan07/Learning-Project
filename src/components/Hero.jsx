@@ -8,7 +8,8 @@ import { CiMenuKebab } from "react-icons/ci";
 import { IoArrowRedoCircleSharp } from "react-icons/io5";
 import { ImMeter } from "react-icons/im";
 import About from "./About";
-
+import Benefits from "./Benefits";
+import Plans from "./Plans";
 const Hero = () => {
   return (
     <div className=" bg-[#F5F7F9] flex flex-col  items-center justify-center pt-20">
@@ -66,12 +67,12 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-end justify-center mt-6 gap-12 mb-6">
+      <div className="flex flex-col md:flex-row items-end justify-center mt-6 gap-8 mb-6">
         <div>
           <img src="/imgggg.PNG" alt="img" className="rounded-2xl w-72 h-80" />
         </div>
 
-        <div className="w-40 h-64 bg-[#0E363D] rounded-2xl flex justify-center text-center items-center">
+        <div className="w-full md:w-40 h-64 bg-[#0E363D] rounded-2xl flex justify-center text-center items-center">
           <h1 className="text-gray-300 text-xl">
             <span className="text-4xl font-semibold text-white">100+</span>{" "}
             <br />
@@ -79,7 +80,7 @@ const Hero = () => {
           </h1>
         </div>
 
-        <div className="w-64 h-48 bg-white rounded-2xl flex flex-col gap-3 justify-center items-center">
+        <div className="w-full md:w-64 h-48 bg-white rounded-2xl flex flex-col gap-3 justify-center items-center">
           <div className="flex justify-between w-52 ">
             <BsGrid1X2 className="bg-[#E2FFC8]  text-[#0E363D] w-8 h-8 p-2" />
             <CiMenuKebab className="w-4 h-4 " />
@@ -99,14 +100,14 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="w-40 h-64 bg-[#E2FFC8] rounded-2xl flex text-center justify-center items-center">
+        <div className="w-full md:w-40 h-64 bg-[#E2FFC8] rounded-2xl flex text-center justify-center items-center">
           <h1 className="text-md ">
             <span className="text-4xl font-bold">6+</span> <br />
             Years of <br /> Dedicated <br /> Service
           </h1>
         </div>
 
-        <div className="w-72 h-80 bg-[#142F32]  rounded-2xl flex flex-col justify-end text-start items-center m">
+        <div className="w-full md:w-72 h-80 bg-[#142F32]  rounded-2xl flex flex-col justify-end text-start items-center m">
           <div className="flex justify-start w-64 items-start ">
             <ImMeter className="w-8 h-8 text-white mx-7" />
           </div>
@@ -116,6 +117,8 @@ const Hero = () => {
         </div>
       </div>
       <About />
+      <Benefits />
+      <Plans />
     </div>
   );
 };

@@ -9,8 +9,8 @@ import { GoGraph } from "react-icons/go";
 
 const About = () => {
   return (
-    <div className="bg-[#0C363C] w-full mt-10 flex flex-col justify-center items-center overflow-hidden">
-      <div className="mt-10 mb-4 ">
+    <div className="bg-[#0C363C]  mt-10 flex flex-col justify-center items-center overflow-hidden w-full">
+      <div className="mt-16 mb-4 ">
         <div className="flex flex-col gap-6 justify-center text-center">
           <h1 className="text-4xl font-sans text-white font-semibold">
             Efficient And Integrated <br /> Manufacturing Services
