@@ -10,14 +10,41 @@ import { ImMeter } from "react-icons/im";
 import About from "./About";
 import Benefits from "./Benefits";
 import Plans from "./Plans";
+import Integration from "./Integration";
+import Footer from "./Footer";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin("useGSAP");
 const Hero = () => {
+  useGSAP(() => {
+    gsap.from("#heading", {
+      y: -60,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+  }, []);
+
+  useGSAP(() => {
+    gsap.from("#para", {
+      y: -60,
+      opacity: 0,
+      duration: 1.6 ,
+      ease: "power3.out",
+    });
+  }, []);
+
   return (
     <div className=" bg-[#F5F7F9] flex flex-col  items-center justify-center pt-20">
       <div className="flex flex-col justify-center text-center gap-4 ">
-        <h1 className="flex text-center justify-center text-4xl md:text-5xl font-sans font-semibold text-[#0E363D]">
+        <h1
+          className="flex text-center justify-center text-4xl md:text-5xl font-sans font-semibold text-[#0E363D]"
+          id="heading"
+        >
           The Future of Manufacturing <br /> with Lastest Technology
         </h1>
-        <p className="text-[#0E363D] text-normal">
+        <p className="text-[#0E363D] text-normal " id="para">
           Expert tech to elevate the manufacturing. Let's take your business
           further.
         </p>
@@ -119,6 +146,8 @@ const Hero = () => {
       <About />
       <Benefits />
       <Plans />
+      <Integration />
+      <Footer />
     </div>
   );
 };
