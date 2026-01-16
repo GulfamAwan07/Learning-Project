@@ -1,10 +1,44 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 
 const Plans = () => {
+  useGSAP(() => {
+    gsap.from(".text", {
+      y: -70,
+      opacity: 0,
+      duration: 0.5,
+
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".text",
+        start: "top 80%",
+        once: true,
+      },
+    });
+  }, []);
+
+  useGSAP(() => {
+    gsap.from(".card", {
+      y: -90,
+      opacity: 0,
+      duration: 0.7,
+      ease: "power3.out",
+      stagger: 0.3,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: ".card",
+        start: "top 70%",
+        once: true,
+      },
+    });
+  }, []);
   return (
     <div className="bg-[#0B0F12] flex flex-col justify-center items-center w-full overflow-hidden">
-      <div className="mt-10 flex flex-col gap-6 justify-center items-center mb-10">
+      <div className="text mt-24 flex flex-col gap-6 justify-center items-center">
         <h1 className="text-3xl md:text-5xl font-semibold text-white">
           Tailored Plans for Your <br /> Manufacturing Scale
         </h1>
@@ -14,7 +48,7 @@ const Plans = () => {
       </div>
 
       <div className="flex flex-col md:flex-row gap-10">
-        <div className="w-screen md:w-96 bg-[#3a3838] flex flex-col gap-5 mt-10 rounded-2xl p-4">
+        <div className="card w-screen md:w-96 bg-[#3a3838] flex flex-col gap-5 mt-10 rounded-2xl p-4">
           <h1 className="text-2xl  text-white">Starter</h1>
           <p className="text-gray-300">
             This package offers the basic features you need to get started.
@@ -57,7 +91,7 @@ const Plans = () => {
           </div>
         </div>
 
-        <div className="w-screen md:w-96 bg-[#3a3838] flex flex-col gap-5 mt-10 rounded-2xl p-4">
+        <div className="card w-screen md:w-96 bg-[#3a3838] flex flex-col gap-5 mt-10 rounded-2xl p-4">
           <h1 className="text-2xl  text-white">Enterprise</h1>
           <p className="text-gray-300">
             This package provides full access to all premium features.
@@ -101,7 +135,7 @@ const Plans = () => {
         </div>
       </div>
 
-      <div className="bg-[#0C363C] flex flex-col justify-center gap-6 items-center mt-10 rounded-2xl w-full  md:max-w-[50rem] mb-4">
+      <div className="card bg-[#0C363C] flex flex-col justify-center gap-6 items-center mt-10 rounded-2xl w-full  md:max-w-[50rem] mb-4">
         <h1 className="text-white mt-6 text-2xl">Professional</h1>
         <p className="text-gray-400">
           Designed for greater flexibility, this solution offers <br /> advanced

@@ -1,12 +1,36 @@
 import React from "react";
 import { CiLinkedin } from "react-icons/ci";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
-
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 const Footer = () => {
+  useGSAP(() => {
+    gsap.fromTo(
+      ".flow",
+      {
+        opacity: 0,
+        x: -80,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "power3.out",
+        stagger: 0.3,
+        delay: 0.8,
+        scrollTrigger: {
+          trigger: ".flow",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+  }, []);
   return (
     <div className="bg-[#020304] flex flex-col items-center w-full overflow-hidden px-4">
       <div className="flex flex-col md:flex-row justify-between w-full max-w-7xl mt-10 gap-10">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 flow">
           <div className="flex items-center gap-4">
             <img src="/flag.png" className="w-8 h-8" />
             <h1 className="text-white font-semibold">Prodmast</h1>
@@ -18,7 +42,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 md:items-end">
+        <div className="flex flex-col gap-4 md:items-end flow">
           <h1 className="text-white font-semibold">Get in Touch</h1>
           <p className="text-gray-500 text-sm">hello@prodmast.com</p>
           <div className="flex gap-6">
@@ -31,7 +55,7 @@ const Footer = () => {
 
       <div className="w-full max-w-7xl h-px bg-[#2A2A2A] my-6" />
 
-      <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mb-4 gap-4">
+      <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mb-4 gap-4 flow">
         <h1 className="text-gray-500 text-sm text-center md:text-left">
           ©2026 Prodmast, <br className="md:hidden" />
           All rights reserved

@@ -6,12 +6,41 @@ import { LuWrench } from "react-icons/lu";
 import { MdOutlineShield } from "react-icons/md";
 import { IoCubeOutline } from "react-icons/io5";
 import { GoGraph } from "react-icons/go";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const container = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".xaxis", {
+        x: -60,
+        opacity: 0,
+        // duration: 1,
+        stagger: 0.3,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 80%",
+          end: "bottom 60%",
+          toggleActions: "play none none none",
+        },
+      });
+    },
+    { scope: container }
+  );
   return (
-    <div className="bg-[#0C363C]  mt-10 flex flex-col justify-center items-center overflow-hidden w-full">
+    <div
+      ref={container}
+      className=" bg-[#0C363C]  mt-10 flex flex-col justify-center items-center overflow-hidden w-full"
+    >
       <div className="mt-16 mb-4 ">
-        <div className="flex flex-col gap-6 justify-center text-center">
+        <div className="xaxis flex flex-col gap-6 justify-center text-center">
           <h1 className="text-4xl font-sans text-white font-semibold">
             Efficient And Integrated <br /> Manufacturing Services
           </h1>
@@ -22,7 +51,7 @@ const About = () => {
       </div>
 
       <div className="mt-6 flex flex-col  md:flex-row justify-center mb-5 gap-10">
-        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl ">
+        <div className="xaxis bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl ">
           <div className="flex justify-between">
             <TbNorthStar className="w-10 h-10 text-white m-5" />
             <GoArrowUpRight className="w-6 h-6 mt-7 right-5 text-white" />
@@ -37,7 +66,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl ">
+        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl xaxis">
           <div className="flex justify-between">
             <PiStackSimple className="w-10 h-10 text-white m-5" />
             <GoArrowUpRight className="w-6 h-6 mt-7 right-5 text-white" />
@@ -52,7 +81,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl ">
+        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl xaxis">
           <div className="flex justify-between">
             <LuWrench className="w-10 h-10 text-white m-5" />
             <GoArrowUpRight className="w-6 h-6 mt-7 right-5 text-white" />
@@ -69,7 +98,7 @@ const About = () => {
       </div>
 
       <div className="mt-6 flex flex-col  md:flex-row justify-center mb-5 gap-10">
-        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl ">
+        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl xaxis">
           <div className="flex justify-between">
             <MdOutlineShield className="w-10 h-10 text-white m-5" />
             <GoArrowUpRight className="w-6 h-6 mt-7 right-5 text-white" />
@@ -84,7 +113,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl ">
+        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl xaxis">
           <div className="flex justify-between">
             <IoCubeOutline className="w-10 h-10 text-white m-5" />
             <GoArrowUpRight className="w-6 h-6 mt-7 right-5 text-white" />
@@ -99,7 +128,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl ">
+        <div className="bg-[#143E44] w-66 md:w-96 h-66 rounded-2xl xaxis">
           <div className="flex justify-between">
             <GoGraph className="w-10 h-10 text-white m-5" />
             <GoArrowUpRight className="w-6 h-6 mt-7 right-5 text-white" />

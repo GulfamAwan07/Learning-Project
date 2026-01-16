@@ -17,27 +17,64 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin("useGSAP");
 const Hero = () => {
+  // useGSAP(() => {
+  //   gsap.from("#heading", {
+  //     y: -60,
+  //     opacity: 0,
+  //     duration: 1,
+  //     ease: "power3.out",
+  //   });
+  // }, []);
+
+  // useGSAP(() => {
+  //   gsap.from("#para", {
+  //     y: -60,
+  //     opacity: 0,
+  //     duration: 1.6 ,
+  //     ease: "power3.out",
+  //   });
+  // }, []);
+
   useGSAP(() => {
-    gsap.from("#heading", {
-      y: -60,
+    gsap.from(".gsap-box", {
+      y: -80,
+      ease: "power3.out",
+      stagger: 0.1,
+    });
+  }, []);
+
+  useGSAP(() => {
+    gsap.from(".axis", {
+      x: -90,
       opacity: 0,
-      duration: 1,
+      delay: 0.5,
+      stagger: 0.3,
+      // ease: "power3.inOut",
+    });
+  }, []);
+
+  useGSAP(() => {
+    gsap.from(".layout", {
+      x: 90,
+      opacity: 0,
+      delay: 0.7,
+      stagger: 0.3,
       ease: "power3.out",
     });
   }, []);
 
   useGSAP(() => {
-    gsap.from("#para", {
-      y: -60,
+    gsap.from(".bottom", {
+      y: 100,
       opacity: 0,
-      duration: 1.6 ,
+      delay: 0.7,
       ease: "power3.out",
     });
   }, []);
 
   return (
     <div className=" bg-[#F5F7F9] flex flex-col  items-center justify-center pt-20">
-      <div className="flex flex-col justify-center text-center gap-4 ">
+      <div className="flex flex-col justify-center text-center gap-4 gsap-box">
         <h1
           className="flex text-center justify-center text-4xl md:text-5xl font-sans font-semibold text-[#0E363D]"
           id="heading"
@@ -63,7 +100,7 @@ const Hero = () => {
          </div>
       </div> */}
 
-      <div className="flex  justify-start md:justify-center mitems-center mt-6 gap-4">
+      <div className="flex  justify-start md:justify-center mitems-center mt-6 gap-4 gsap-box">
         <button className="bg-[#0E363D] font-semibold font-sans rounded-full p-2 text-white">
           Get Started
         </button>
@@ -72,7 +109,7 @@ const Hero = () => {
         </button>
       </div>
 
-      <div className="flex flex-col justify-center items-center mt-6">
+      <div className="flex flex-col justify-center items-center mt-6 gsap-box">
         <div className="flex gap-2">
           <div className="flex gap-0 ">
             <MdStar className="w-6 h-6 text-yellow-400" />
@@ -95,11 +132,11 @@ const Hero = () => {
       </div>
 
       <div className="flex flex-col md:flex-row items-end justify-center mt-6 gap-8 mb-6">
-        <div>
+        <div className="axis">
           <img src="/imgggg.PNG" alt="img" className="rounded-2xl w-72 h-80" />
         </div>
 
-        <div className="w-full md:w-40 h-64 bg-[#0E363D] rounded-2xl flex justify-center text-center items-center">
+        <div className="w-full md:w-40 h-64 bg-[#0E363D] rounded-2xl flex justify-center text-center items-center axis">
           <h1 className="text-gray-300 text-xl">
             <span className="text-4xl font-semibold text-white">100+</span>{" "}
             <br />
@@ -107,7 +144,7 @@ const Hero = () => {
           </h1>
         </div>
 
-        <div className="w-full md:w-64 h-48 bg-white rounded-2xl flex flex-col gap-3 justify-center items-center">
+        <div className="bottom w-full md:w-64 h-48 bg-white rounded-2xl flex flex-col gap-3 justify-center items-center">
           <div className="flex justify-between w-52 ">
             <BsGrid1X2 className="bg-[#E2FFC8]  text-[#0E363D] w-8 h-8 p-2" />
             <CiMenuKebab className="w-4 h-4 " />
@@ -127,14 +164,14 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-40 h-64 bg-[#E2FFC8] rounded-2xl flex text-center justify-center items-center">
+        <div className="layout w-full md:w-40 h-64 bg-[#E2FFC8] rounded-2xl flex text-center justify-center items-center">
           <h1 className="text-md ">
             <span className="text-4xl font-bold">6+</span> <br />
             Years of <br /> Dedicated <br /> Service
           </h1>
         </div>
 
-        <div className="w-full md:w-72 h-80 bg-[#142F32]  rounded-2xl flex flex-col justify-end text-start items-center m">
+        <div className="layout w-full md:w-72 h-80 bg-[#142F32]  rounded-2xl flex flex-col justify-end text-start items-center m">
           <div className="flex justify-start w-64 items-start ">
             <ImMeter className="w-8 h-8 text-white mx-7" />
           </div>
