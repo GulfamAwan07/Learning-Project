@@ -18,6 +18,7 @@ const App = () => {
       <Routes>
         {" "}
         //in last, change the Whole Structure...
+        //upgrade  name 
         <Route path="/" element={<Hero />} />
         <Route path="/About" element={<About />} />
         <Route path="/Benefits" element={<Benefits />} />
